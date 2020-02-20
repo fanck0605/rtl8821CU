@@ -1262,7 +1262,7 @@ else
 ## For ARM ToolChain use Hardware FLOATING
 # Raspbian kernel is with soft-float.
 # 'softfp' allows FP instructions, but no FP on function call interfaces
-EXTRA_CFLAGS += -mfloat-abi=softfp
+#EXTRA_CFLAGS += -mfloat-abi=softfp
 endif
 endif
 
@@ -1298,9 +1298,8 @@ endif
 
 EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN
 EXTRA_CFLAGS += -DCONFIG_IOCTL_CFG80211 -DRTW_USE_CFG80211_STA_EVENT
-ARCH ?= arm
-CROSS_COMPILE ?=
-KVER ?= 4.4.49-s5p4418
+ARCH ?= arm64
+CROSS_COMPILE ?= aarch64-linux-
 KSRC ?= /opt/FriendlyARM/build/linux-4.4.y
 KLIB ?= /tmp/wireless-modules
 INSTALL_PREFIX :=
@@ -1316,10 +1315,9 @@ endif
 
 ifeq ($(KERNELRELEASE),)
 $(info *)
-$(info *    Kernel Version: $(KVER) )
 $(info *    Kernel TOP-Dir: $(KSRC) )
 $(info *)
-$(info *  Copyright 2019 FriendlyARM (http://www.friendlyarm.com/))
+$(info *  Copyright 2020 FriendlyELEC (http://www.friendlyarm.com/))
 $(info ********************************************************************************)
 endif
 endif # END of VENDOR_FRIENDLYARM }
